@@ -6,8 +6,7 @@ My final projects documentation
 Project requirements
 http://www.ebredder.org/Docs/ETRDocumentationv2.pdf
 
-Introduction: My project was to write a linux driver. This driver would be capable of reponding when installed and removed.
-It would respond with a print to console.
+Introduction: My project was to write a mouse driver for linux. It would have basic functionality that one would expect from a mouse.
 
 Milestone A: The first hurdle was figuring out how to even begin. Knowing quite little about linux the first thing I did was start
 googling.
@@ -48,6 +47,18 @@ This concludes the project. I learned a massive amount about linux with this pro
 program using vi, working with the kernel, learning about root permissions, installing and removing drivers, then storing them
 in the proper library.
 
+REPLAN:
+So the past idea of write a driver that turns on and off was a bust. The mouse guide I was given left out important details like
+addresses, so I went to open source.
+
+After various fiddling, I found something that worked, made some very small modifications to it and got it to work
+
+2 hours later:
+
+So it turns out that the mosue works even if it has no mouse driver installed. I need to fix this before moving forward. Sigh.
+
+
 Citations used:
 http://freesoftwaremagazine.com/articles/drivers_linux/
 https://stackoverflow.com/questions/38857741/is-dynamic-linker-part-of-kernel-or-gcc-library-on-linux-systems
+Open scource code used
