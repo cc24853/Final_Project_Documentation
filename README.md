@@ -107,6 +107,6 @@ Trying to indirectly manipulate the mouse driver using console commands in a dif
 Trying to figure out why the mouse was working reguardless of any drivers installed. My guess is the hid-generic driver is a failsafe used to cover missing drivers. Perhaps installing a mouse driver while removing this one could work, it remains untested and with all the other false mountaintops in this project, I would assume that it is not that simple.
 
 ## Citations used:
-http://freesoftwaremagazine.com/articles/drivers_linux/
-https://stackoverflow.com/questions/38857741/is-dynamic-linker-part-of-kernel-or-gcc-library-on-linux-systems
-Open scource code used
+* http://freesoftwaremagazine.com/articles/drivers_linux/
+* https://stackoverflow.com/questions/38857741/is-dynamic-linker-part-of-kernel-or-gcc-library-on-linux-systems
+* Open scource code used
