@@ -1,5 +1,3 @@
-IN PROGRESS, Needs orginizing and pictures.
-
 # Final Project Documentation
 My final project's documentation
 
