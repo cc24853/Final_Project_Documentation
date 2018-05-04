@@ -57,7 +57,6 @@ After various fiddling, I found something that worked, made some very small modi
 
 ##### Many hours later:
 
-
 So it turns out that the mouse works even if it has no mouse driver installed seemingly. I am guessing either the mouse driver I am using does not work/matter, or there is another generic backup driver that is replacing it.
 
 ### _Days Later_
@@ -74,6 +73,9 @@ and
 I also tried to find installed drivers by using rmmod * to uninstall every single driver in the directories. interestingly, when I removed and plugged in the mouse or keyboard, three drivers kept rebooting while removing other non-hid devices (like a usb wireless adapter) would not reinstall the drivers.
 
 Using notepad to compare and contract the listed drivers and what the terminal said was not loaded, there were only three drivers installed of all the drivers listed. They were hid-generic, /usbhid/usbhid (usbkbd.ko and usbmouse.ko in the same directory apparently were optional/ not required for the mouse or keyboard to operate) and hid.ko (which was in use by the other two, unable to be uninstalled.)
+
+This just adds to the frustration:
+![No mouse driver](../master/Nomousedriver.jpg)
 
 ### Section 2 Conclusion
 
