@@ -27,16 +27,22 @@ not seeing the required drivers I installed. Then, I started back on the vi thin
 some hours spent searching on google, I learned vi is an interpreter that can be used for writing a driver. 
 Using vi, I made two files, a .c file and a makefile.
 
+The code for the makefile I used is:
+`obj-m := <DRIVERNAME>.o`
+
+and the code to run this was:
+``make -c /usr/src/linux-headers-<CURRENTKERNELVERSION> M=`pwd` modules``
+
 A bit later, I found I needed root access in order to store the driver in the module libraries.
 
 #### Milestone C:
 Several days later of google diving and testing, I learn how to actually install the files using "insmod" 
-and can remove modules with "rmmod." I also know now that of the files made during milestone A, the one with the .ko extension.
-I can also check if it is installed with lsmod | grep driver, but I need to install the driver first.
+and can remove modules with `rmmod`. I also know now that of the files made during milestone A, the one with the .ko extension.
+I can also check if it is installed with `lsmod | grep driver`, but I need to install the driver first.
 
 After some hours using knowledge gained from an earlier tutorial assignment on the course, 
 I learned about about linux to find the locations of where the files needed to go and how to launch them.
-For the version from milestone A, I found this by using uname -r to get the version type I am using. and
+For the version from milestone A, I found this by using `uname -r` to get the version type I am using. and
 successfully install the driver and uninstall it. Shortly later I found out how to move the .ko file to its home in the proper directory.
 
 
@@ -44,16 +50,17 @@ successfully install the driver and uninstall it. Shortly later I found out how 
 ### Section 1 conclusion 
 This was round 1 and 2. I learned a massive amount about linux with this project. I learned how to write a basic driver,
 program using vi, working with the kernel, learning about root permissions, installing and removing drivers, then storing them
-in the proper library.
+in the proper library. I also learned some more information on what needs to be turned on and off to enable or disable the mouse driver, though not enough to fully do it at this point.
 
 ### _Section 2_
 So now that I can install and uninstall a driver in the right location, as well as put them in the right place, the next thing to do was make a mouse driver. The mouse guide I was given left out important details like addresses, so I went to open source.
 
 After various fiddling, I found something that worked, made some very small modifications to it and got it to work.
 
-Many hours later:
+##### Many hours later:
 
-So it turns out that the mouse works even if it has no mouse driver installed, either the mouse driver I am using does not work/matter, or there is another generic backup driver that is replacing it.
+
+So it turns out that the mouse works even if it has no mouse driver installed seemingly. I am guessing either the mouse driver I am using does not work/matter, or there is another generic backup driver that is replacing it.
 
 ### _Days Later_
 
@@ -72,7 +79,7 @@ Using notepad to compare and contract the listed drivers and what the terminal s
 
 ### Section 2 Conclusion
 
-I am unsure of how to continue from here, as this means that both the keyboard and mouse are able to operate without any dedicated driver. I do belive that the open source mouse driver I have will work. While it remains untested in any meaningful manner, using modinfo on the hid-generic driver will list three authors. One of these authors is the same author of my mouse driver I found, meaning it should work due to the fact another working driver is written by the same author.
+I am unsure of how to continue from here, as this means that both the keyboard and mouse are able to operate without any dedicated driver. Only these three hid drivers get restored when I plug in/unplug the mouse or keyboard while the other drivers are seemingly not critical for the mouse or keyboard to function. I do belive that the open source mouse driver I have will work. While it remains untested in any meaningful manner, using modinfo on the hid-generic driver will list three authors. One of these authors is the same author of my mouse driver I found, meaning it should work due to the fact another working driver is written by the same author.
 
 
 ## Conclusion
@@ -100,7 +107,7 @@ While the goal of the project was unmet, the knowledge gained along the way shou
 
 #### Failures summarized
 
-Trying to use gcc as an interpreter and using linux-headers to install the driver. This proved redunant and incorrect
+Trying to use gcc as an interpreter and using linux-headers to install the driver. This proved redunant and incorrect. I later learned that gcc made the .o file, but not the required data structures to make the .ko file. The "make file" process does both of these things at once rather than one at a time.
 
 Trying to indirectly manipulate the mouse driver using console commands in a different driver. This defeated the point of the entire project and was more of a band aid on a hole in a ship.
 
@@ -109,4 +116,4 @@ Trying to figure out why the mouse was working reguardless of any drivers instal
 ## Citations used:
 * http://freesoftwaremagazine.com/articles/drivers_linux/
 * https://stackoverflow.com/questions/38857741/is-dynamic-linker-part-of-kernel-or-gcc-library-on-linux-systems
-* Open scource code used
+* Open scource code used: https://casper.berkeley.edu/svn/trunk/roach/sw/linux/drivers/hid/usbhid/usbmouse.c
